@@ -45,7 +45,7 @@ export default function HomeClient({ characters }: HomeClientProps) {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="public/images/hero-bg.png"
+            src="/images/hero-bg.png"
             alt="Hero background"
             fill
             className="object-cover object-center"

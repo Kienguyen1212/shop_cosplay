@@ -141,7 +141,7 @@ export default function AboutPage() {
       {/* ── HERO ── */}
       <section className="relative h-[40vh] sm:h-[52vh] min-h-[280px] sm:min-h-[340px] flex items-end pb-10 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/media/background/background.png" alt="About hero" fill className="object-cover object-center" priority />
+          <Image src="/images/hero-bg.png" alt="About hero" fill className="object-cover object-center" priority />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0820]/40 via-[#0c0820]/50 to-[#0c0820]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full">

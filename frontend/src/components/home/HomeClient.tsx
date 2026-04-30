@@ -45,7 +45,7 @@ export default function HomeClient({ characters }: HomeClientProps) {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/media/background/background.png"
+            src="public/images/hero-bg.png"
             alt="Hero background"
             fill
             className="object-cover object-center"
@@ -245,73 +245,73 @@ export default function HomeClient({ characters }: HomeClientProps) {
           {/* Cards grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
             {characters.slice(0, 5).map((char, i) => {
-              const displayClass = 
+              const displayClass =
                 i === 2 ? "hidden sm:block" :
-                i === 3 ? "hidden md:block" :
-                i >= 4 ? "hidden lg:block" : "";
-              
-              return (
-              <motion.div
-                key={char.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={displayClass}
-              >
-                <Link href="/characters">
-                  <motion.div
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    transition={{ duration: 0.25 }}
-                    className="cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-[#1a1035] shadow-lg hover:shadow-violet-900/40 hover:border-violet-500/40 transition-all duration-300 group"
-                  >
-                    {/* Image */}
-                    <div
-                      className="relative overflow-hidden"
-                      style={{ height: "clamp(180px, 30vw, 240px)" }}
-                    >
-                      <Image
-                        src={char.image_url || "/images/cyrene.jpg"}
-                        alt={char.name}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a1035] via-transparent to-transparent" />
-                      {/* Status badge */}
-                      <div
-                        className={`absolute top-2 sm:top-3 left-2 sm:left-3 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] border ${statusBg[char.status]} ${statusColor[char.status]}`}
-                      >
-                        {char.status}
-                      </div>
-                    </div>
+                  i === 3 ? "hidden md:block" :
+                    i >= 4 ? "hidden lg:block" : "";
 
-                    {/* Info */}
-                    <div className="px-3 sm:px-4 pt-2 sm:pt-3 pb-3 sm:pb-4 flex flex-col items-center gap-1.5 sm:gap-2">
-                      <h3
-                        className="text-white/90 text-center text-sm sm:text-base"
-                        style={{ fontFamily: "var(--font-serif)" }}
+              return (
+                <motion.div
+                  key={char.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  className={displayClass}
+                >
+                  <Link href="/characters">
+                    <motion.div
+                      whileHover={{ y: -8, scale: 1.03 }}
+                      transition={{ duration: 0.25 }}
+                      className="cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-[#1a1035] shadow-lg hover:shadow-violet-900/40 hover:border-violet-500/40 transition-all duration-300 group"
+                    >
+                      {/* Image */}
+                      <div
+                        className="relative overflow-hidden"
+                        style={{ height: "clamp(180px, 30vw, 240px)" }}
                       >
-                        {char.name}
-                      </h3>
-                      <div className="flex items-center gap-0.5">
-                        {Array.from({ length: 5 }, (_, j) => (
-                          <Star
-                            key={j}
-                            size={9}
-                            className="text-amber-400 fill-amber-400"
-                          />
-                        ))}
+                        <Image
+                          src={char.image_url || "/images/cyrene.jpg"}
+                          alt={char.name}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1035] via-transparent to-transparent" />
+                        {/* Status badge */}
+                        <div
+                          className={`absolute top-2 sm:top-3 left-2 sm:left-3 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] border ${statusBg[char.status]} ${statusColor[char.status]}`}
+                        >
+                          {char.status}
+                        </div>
                       </div>
-                      <p className="text-violet-300 text-xs sm:text-sm font-medium">
-                        {formatPrice(char.rental_price)}/ngày
-                      </p>
-                      <span className="mt-0.5 w-full py-1.5 rounded-lg bg-violet-600/80 hover:bg-violet-500 text-white text-xs text-center transition-colors duration-150">
-                        Xem chi tiết
-                      </span>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
+
+                      {/* Info */}
+                      <div className="px-3 sm:px-4 pt-2 sm:pt-3 pb-3 sm:pb-4 flex flex-col items-center gap-1.5 sm:gap-2">
+                        <h3
+                          className="text-white/90 text-center text-sm sm:text-base"
+                          style={{ fontFamily: "var(--font-serif)" }}
+                        >
+                          {char.name}
+                        </h3>
+                        <div className="flex items-center gap-0.5">
+                          {Array.from({ length: 5 }, (_, j) => (
+                            <Star
+                              key={j}
+                              size={9}
+                              className="text-amber-400 fill-amber-400"
+                            />
+                          ))}
+                        </div>
+                        <p className="text-violet-300 text-xs sm:text-sm font-medium">
+                          {formatPrice(char.rental_price)}/ngày
+                        </p>
+                        <span className="mt-0.5 w-full py-1.5 rounded-lg bg-violet-600/80 hover:bg-violet-500 text-white text-xs text-center transition-colors duration-150">
+                          Xem chi tiết
+                        </span>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
@@ -361,8 +361,8 @@ export default function HomeClient({ characters }: HomeClientProps) {
                         i % 3 === 0
                           ? "clamp(140px, 15vw, 200px)"
                           : i % 3 === 1
-                          ? "clamp(120px, 12vw, 160px)"
-                          : "clamp(160px, 17vw, 220px)",
+                            ? "clamp(120px, 12vw, 160px)"
+                            : "clamp(160px, 17vw, 220px)",
                       height: "clamp(200px, 25vw, 300px)",
                     }}
                   >
@@ -408,8 +408,8 @@ export default function HomeClient({ characters }: HomeClientProps) {
                       i % 3 === 0
                         ? "clamp(130px, 13vw, 170px)"
                         : i % 3 === 1
-                        ? "clamp(170px, 18vw, 230px)"
-                        : "clamp(145px, 15vw, 190px)",
+                          ? "clamp(170px, 18vw, 230px)"
+                          : "clamp(145px, 15vw, 190px)",
                     height: "clamp(160px, 20vw, 240px)",
                   }}
                 >
